@@ -14,6 +14,10 @@ import postRoutes from "./routes/post.js";
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middlewares/auth.js";
+import Posts from "./modals/Post.js";
+import User from "./modals/User.js";
+import { posts, users } from "./data/index.js";
+
 // CONFIGURATION
 
 // need to configure this when using type as module
@@ -64,7 +68,9 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() =>
-    app.listen(PORT, () => console.log(`Server Started at PORT: ${PORT}`))
-  )
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server Started at PORT: ${PORT}`));
+    // User.insertMany(users);
+    // Posts.insertMany(posts);
+  })
   .catch((error) => console.log(`${error}, did not connect`));

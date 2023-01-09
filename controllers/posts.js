@@ -1,5 +1,6 @@
 import Post from "../modals/Post.js";
 import User from "../modals/User.js";
+
 // CREATE
 export const createPost = async (req, res) => {
   try {
